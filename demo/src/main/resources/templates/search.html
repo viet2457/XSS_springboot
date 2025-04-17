@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reflected XSS Demo</title>
+</head>
+<body>
+    <h2>Search Page</h2>
+    <form action="/search" method="GET">
+        <input type="text" name="q" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+    <p>Results for: <b th:utext="${query}"></b></p> <!-- XSS -->
+</body>
+</html>

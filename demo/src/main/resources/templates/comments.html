@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stored XSS Demo</title>
+</head>
+<body>
+    <h2>Comments</h2>
+    <form action="/comments" method="POST">
+        <input type="text" name="content" placeholder="Add a comment">
+        <button type="submit">Submit</button>
+    </form>
+    <ul>
+        <!-- Render comment trực tiếp mà không escape -->
+        <li th:each="comment : ${comments}" th:utext="${comment.content}"></li>
+    </ul>
+</body>
+</html>
